@@ -16,6 +16,9 @@ export 'package:flutter_firebase_auth/view/screens/welcome/welcome_screen.dart';
 
 // Controllers
 
+// Widgets
+export 'package:flutter_firebase_auth/view/widgets/custom_button.dart';
+
 // Utils
 export 'package:flutter_firebase_auth/utils/app_theme.dart';
 export 'package:flutter_firebase_auth/utils/assets_path.dart';
