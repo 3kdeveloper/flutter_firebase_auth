@@ -1,5 +1,4 @@
 import 'package:flutter_firebase_auth/utils/exports.dart';
-import 'package:flutter_firebase_auth/view/screens/auth/sing_in_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -15,7 +14,9 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height: Get.height * 0.08),
               Text(
                 'Welcome back!',
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
               ),
               SizedBox(height: Get.height * 0.02),
               Text(
@@ -23,31 +24,31 @@ class WelcomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.subtitle1,
               ),
               SizedBox(height: Get.height * 0.1),
-              CustomButton(
+              CustomAuthButton(
                 buttonText: 'Login with Email/Password',
                 icon: 'assets/icons/mail.png',
-                onTap: () => Get.to(() => const SignInScreen()),
+                onTap: () => Get.to(() => LoginScreen()),
               ),
               SizedBox(height: Get.height * 0.03),
-              CustomButton(
+              CustomAuthButton(
                 buttonText: 'Login with Google',
                 icon: 'assets/icons/google.png',
                 onTap: () {},
               ),
               SizedBox(height: Get.height * 0.03),
-              CustomButton(
+              CustomAuthButton(
                 buttonText: 'Login with Facebook',
                 icon: 'assets/icons/facebook.png',
                 onTap: () {},
               ),
               SizedBox(height: Get.height * 0.03),
-              CustomButton(
+              CustomAuthButton(
                 buttonText: 'Login with Phone No',
                 icon: 'assets/icons/phone.png',
                 onTap: () {},
               ),
               SizedBox(height: Get.height * 0.03),
-              CustomButton(
+              CustomAuthButton(
                 buttonText: 'Login with Anonymous',
                 icon: 'assets/icons/anonymous.png',
                 onTap: () {},

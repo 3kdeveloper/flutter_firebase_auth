@@ -2,47 +2,37 @@ import 'package:flutter_firebase_auth/utils/exports.dart';
 
 class CustomButton extends StatelessWidget {
   final String buttonText;
-  final String icon;
-  final VoidCallback onTap;
+  final Function onPressed;
+  final Color buttonColor;
+  final double buttonWidth = 0.7;
 
   const CustomButton({
     Key? key,
     required this.buttonText,
-    required this.icon,
-    required this.onTap,
+    required this.onPressed,
+    required this.buttonColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
-      child: Card(
-        elevation: 3,
+        highlightColor: AppTheme.kWhiteColor,
+        onTap: onPressed(),
         child: Container(
-          height: Get.height * 0.08,
-          width: Get.width * 0.9,
-          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.04),
           alignment: Alignment.center,
+          height: Get.height * 0.08,
+          width: Get.width * buttonWidth,
           decoration: BoxDecoration(
-            // color: AppTheme.kPrimaryColor.withOpacity(0.7),
-            borderRadius: BorderRadius.circular(5),
+            color: buttonColor,
+            borderRadius: BorderRadius.circular(30),
           ),
-          child: Row(
-            children: [
-              Image.asset(
-                icon,
-                width: Get.height * 0.06,
-                height: Get.height * 0.06,
-              ),
-              SizedBox(width: Get.width * 0.04),
-              Text(
-                buttonText,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ],
+          child: Text(
+            buttonText,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: AppTheme.kWhiteColor,
+                  fontWeight: FontWeight.w700,
+                ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
