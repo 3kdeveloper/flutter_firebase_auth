@@ -2,7 +2,7 @@ import 'package:flutter_firebase_auth/utils/exports.dart';
 
 class CustomButton extends StatelessWidget {
   final String buttonText;
-  final IconData icon;
+  final String icon;
   final VoidCallback onTap;
 
   const CustomButton({
@@ -29,9 +29,16 @@ class CustomButton extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(icon),
+              Image.asset(
+                icon,
+                width: Get.height * 0.06,
+                height: Get.height * 0.06,
+              ),
               SizedBox(width: Get.width * 0.04),
-              Text(buttonText),
+              Text(
+                buttonText,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
             ],
           ),
         ),

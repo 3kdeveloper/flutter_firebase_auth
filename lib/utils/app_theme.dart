@@ -9,6 +9,7 @@ class AppTheme {
 
   // Theme
   static ThemeData theme = ThemeData(
+    useMaterial3: true,
     primaryColor: kPrimaryColor,
     scaffoldBackgroundColor: kWhiteColor,
     inputDecorationTheme: InputDecorationTheme(

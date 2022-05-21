@@ -9,6 +9,7 @@ export 'package:get/get_state_manager/get_state_manager.dart';
 //..... Screens
 export 'package:flutter_firebase_auth/view/screens/splash/splash_screen.dart';
 export 'package:flutter_firebase_auth/view/screens/welcome/welcome_screen.dart';
+export 'package:flutter_firebase_auth/view/screens/auth/sing_in_screen.dart';
 
 //..... Components
 
