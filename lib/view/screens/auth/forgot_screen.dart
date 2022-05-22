@@ -8,6 +8,7 @@ class ForgotScreen extends StatefulWidget {
 }
 
 class _ForgotScreenState extends State<ForgotScreen> {
+  final _forgotPasswordKey = GlobalKey<FormState>();
   bool isTextFieldEmpty = true;
   @override
   void initState() {
@@ -32,45 +33,56 @@ class _ForgotScreenState extends State<ForgotScreen> {
                   children: [
                     Padding(
                       padding: kDefaultPadding.copyWith(top: Get.height * 0.05),
-                      child: Column(
-                        children: [
-                          const AuthHeader(
-                            imagePath: 'assets/images/forgotPassword.svg',
-                            text: 'Forgot Password',
-                          ),
-                          SizedBox(height: Get.height * 0.02),
-                          buildTextFormField(
-                            controller: _emailController,
-                            keyboardType: TextInputType.emailAddress,
-                            hintText: 'Enter your email',
-                            prefixIcon: Icons.email,
-                            onChanged: (value) {
-                              setState(() {
-                                isTextFieldEmpty = !isTextFieldEmpty;
-                              });
-                              return value;
-                            },
-                          ),
-                          SizedBox(height: Get.height * 0.05),
-                          CustomButton(
-                            buttonText: 'Reset Password',
-                            buttonColor: _emailController.text.isEmail
-                                ? AppTheme.kPrimaryColor
-                                : Colors.grey,
-                            onPressed: () => () {
-                              //TODO Check Validation and Send Reset code to user email
-                            },
-                          ),
-                          SizedBox(height: Get.height * 0.04),
-                          AuthFooter(
-                            text: 'Goto? ',
-                            buttonText: 'LOGIN',
-                            onPressed: () => () {
-                              Get.to(() => LoginScreen());
-                            },
-                          ),
-                          SizedBox(height: Get.height * 0.04),
-                        ],
+                      child: Form(
+                        key: _forgotPasswordKey,
+                        child: Column(
+                          children: [
+                            const AuthHeader(
+                              imagePath: 'assets/images/forgotPassword.svg',
+                              text: 'Forgot Password',
+                            ),
+                            SizedBox(height: Get.height * 0.02),
+                            buildTextFormField(
+                                controller: _emailController,
+                                keyboardType: TextInputType.emailAddress,
+                                hintText: 'Enter your email',
+                                prefixIcon: Icons.email,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isTextFieldEmpty = !isTextFieldEmpty;
+                                  });
+                                  return value;
+                                },
+                                validate: (value) {
+                                  if (!GetUtils.isEmail(value!)) {
+                                    return 'please provide a valid email';
+                                  }
+                                  return null;
+                                }),
+                            SizedBox(height: Get.height * 0.05),
+                            CustomButton(
+                              buttonText: 'Reset Password',
+                              buttonColor: _emailController.text.isEmail
+                                  ? AppTheme.kPrimaryColor
+                                  : Colors.grey,
+                              onPressed: () => () {
+                                if (_forgotPasswordKey.currentState!
+                                    .validate()) {
+                                  print('Check Your Email');
+                                }
+                              },
+                            ),
+                            SizedBox(height: Get.height * 0.04),
+                            AuthFooter(
+                              text: 'Goto? ',
+                              buttonText: 'LOGIN',
+                              onPressed: () => () {
+                                Get.to(() => LoginScreen());
+                              },
+                            ),
+                            SizedBox(height: Get.height * 0.04),
+                          ],
+                        ),
                       ),
                     ),
                     Align(

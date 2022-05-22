@@ -13,6 +13,7 @@ export 'package:flutter_firebase_auth/view/screens/welcome/welcome_screen.dart';
 export 'package:flutter_firebase_auth/view/screens/auth/login_screen.dart';
 export 'package:flutter_firebase_auth/view/screens/auth/signup_screen.dart';
 export 'package:flutter_firebase_auth/view/screens/auth/forgot_screen.dart';
+export 'package:flutter_firebase_auth/view/screens/home/home_screen.dart';
 
 //..... Components
 //...Auth Components

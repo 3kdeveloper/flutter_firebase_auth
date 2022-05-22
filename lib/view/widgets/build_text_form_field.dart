@@ -8,6 +8,7 @@ Widget buildTextFormField({
   IconData? prefixIcon,
   IconData? suffixIcon,
   String? Function(String)? onChanged,
+  required String? Function(String? value)? validate,
 }) {
   return SizedBox(
     width: Get.width * 0.85,
@@ -28,6 +29,7 @@ Widget buildTextFormField({
           border: InputBorder.none,
         ),
         onChanged: onChanged,
+        validator: validate,
       ),
     ),
   );
