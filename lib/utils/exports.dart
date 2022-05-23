@@ -24,6 +24,7 @@ export 'package:flutter_firebase_auth/view/screens/auth/components/custom_forgot
 // Models
 
 // Controllers
+export 'package:flutter_firebase_auth/controller/auth_controller.dart';
 
 // Widgets
 export 'package:flutter_firebase_auth/view/widgets/build_text_form_field.dart';
