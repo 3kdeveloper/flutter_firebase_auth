@@ -1,43 +1,28 @@
 name: flutter_firebase_auth
 description: A new Flutter project.
-
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-version: 1.0.0+1
-
+version: ^4.10.0
 environment:
   sdk: ">=2.16.2 <3.0.0"
-
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.4
-  get: ^4.6.3
-  flutter_svg: ^1.0.3
-  firebase_core: ^1.17.0
+  cupertino_icons: ^1.0.6
+  get: ^4.6.6
+  flutter_svg: ^2.0.7
+  firebase_core: ^2.16.0
+  cloud_firestore: ^4.9.2
   firebase_auth: ^3.3.18
-  cloud_firestore: ^3.1.15
+  google_sign_in: ^6.1.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.3
 
 flutter:
-
   uses-material-design: true
-
   assets:
     - assets/
-    - assets/fonts/
     - assets/icons/
     - assets/images/
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
